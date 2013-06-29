@@ -15,7 +15,7 @@ object Program extends App {
     commandsFromString(commands).foldLeft(rover)(_.processCommand(_))
   }
 
-  def verifyRoverOutput(result: Rover, endPosition: Point, endOrientation: Orientation) {
+  def verifyRoverOutput(result: Rover, endPosition: Point, endOrientation: Orientation) = {
     println(result)
     assert(endPosition == result.position)
     assert(endOrientation == result.orientation)

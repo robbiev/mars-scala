@@ -13,8 +13,8 @@ sealed abstract class Orientation(val letter: Char, val ordinal: Int) {
   def right = move(_ + 1)
   def left = move(_ - 1)
   def move(func: Int => Int) = {
-	val newIndex = (Orientation.ORDER.size + func(this.ordinal)) % Orientation.ORDER.size
-	Orientation.ORDER(newIndex)
+    val newIndex = (Orientation.ORDER.size + func(this.ordinal)) % Orientation.ORDER.size
+    Orientation.ORDER(newIndex)
   }
 }
 case object North extends Orientation('N', 0)
@@ -29,7 +29,7 @@ case class Rover(val position: Point, val orientation: Orientation)(implicit wor
     case Right => this.copy(orientation = orientation.right)
     case Move => this.copy(position = world.moveInWorld(position, orientation))
   }
-  
+
   override def toString() = {
     s"${position.x} ${position.y} $orientation"
   }
